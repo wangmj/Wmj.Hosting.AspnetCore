@@ -1,7 +1,12 @@
 #dotnet publish ./Wmj.Hosting.Generic.csproj -o ./bin/publish
-$versionNum = "1.0.";
-$versionPrefix = "pre";
-
 $packageName = "Wmj.Hosting.Generic";
-$version = $versionNum + (get-date -Format "yyMMdd") + "." + (get-date -Format "HHmm");
-dotnet pack ./Wmj.Hosting.Generic.csproj --version-suffix $versionPrefix -p:PackageVersion=$version -o ./bin/packs
+$version = "1.0." + (get-date -Format "yyMMdd-HHmm");
+echo($version);
+$packageFullName = $packageName + "." + $version + ".nupkg";
+$nugetServer = "http://localhost:8000/nuget";
+$apiKey = "pass01!";
+set VERSION=$version;
+
+dotnet pack ./Wmj.Hosting.Generic.csproj -p:PackageVersion=$version -o ./bin/packs
+
+dotnet nuget push ./bin/packs/$packageFullName -s $nugetServer -k $apiKey
