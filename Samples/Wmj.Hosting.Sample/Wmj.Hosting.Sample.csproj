@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Wmj.Hosting\Wmj.Hosting.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Wmj.Hosting\Wmj.Hosting.AspnetCore.csproj" />
   </ItemGroup>
 
 </Project>

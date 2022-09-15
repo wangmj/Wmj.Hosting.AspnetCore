@@ -5,15 +5,16 @@ using NLog;
 using NLog.Web;
 using Wmj.Infrastruct;
 
-namespace Wmj.Hosting
+namespace Wmj.Hosting.AspnetCore
 {
     public class HostingContext
     {
+        public static string NODE_NAME = Environment.MachineName;
         public static void ApplicationInitWithNLog(Action<WebApplicationBuilder> startAction)
         {
             Guard.ThrowIfNull(startAction, nameof(startAction));
 
-            var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+            var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
             logger.Debug("init main");
             try
             {

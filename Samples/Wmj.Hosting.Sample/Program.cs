@@ -1,4 +1,4 @@
-using Wmj.Hosting;
+using Wmj.Hosting.AspnetCore;
 
 HostingContext.ApplicationInitWithNLog(appbuilder => { 
     
