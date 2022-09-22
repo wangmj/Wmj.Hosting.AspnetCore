@@ -11,6 +11,6 @@ HostingContext.ApplicationInitWithNLog(appbuilder =>
     Startup.BuildService(app, app.Environment);
 
     app.UseBuildinLifeTimes(app.Lifetime);
-    
+
     app.Run();
 });

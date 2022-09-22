@@ -1,4 +1,6 @@
-﻿using Wmj.Hosting.AspnetCore.LifeTimes;
+﻿using Wmj.Hosting.AspnetCore;
+using Wmj.Hosting.AspnetCore.Endpoints;
+using Wmj.Hosting.AspnetCore.LifeTimes;
 
 namespace Wmj.Hosting.Sample
 {
@@ -16,6 +18,8 @@ namespace Wmj.Hosting.Sample
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.Map("well-known/app",AppEndpoint.GetAppInfo);
+            //app.Map("/well-known/app", (builder) => builder.UseMiddleware<AppEndpointsMiddleware>());
             app.UseEndpoints(routeBuilder =>
             {
                 routeBuilder.MapControllers();
