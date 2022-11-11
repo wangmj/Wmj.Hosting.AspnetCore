@@ -1,4 +1,6 @@
-﻿namespace Wmj.Hosting.Sample
+﻿using Wmj.Hosting.MiddleWares;
+
+namespace Wmj.Hosting.Sample
 {
     internal class Startup
     {
@@ -14,6 +16,7 @@
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseMiddleware<LogMiddleware>();
             app.UseEndpoints(routeBuilder =>
             {
                 routeBuilder.MapControllers();
