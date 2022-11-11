@@ -2,7 +2,7 @@
 {
     internal class Startup
     {
-        public static void CongfigService(IServiceCollection service)
+        public static void ConfigService(IServiceCollection service)
         {
             service.AddControllers();
             service.AddAuthenticationCore();
