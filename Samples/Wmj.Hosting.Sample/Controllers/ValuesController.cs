@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Wmj.Hosting.Sample.Filters;
 
 namespace Wmj.Hosting.Sample.Controllers
 {
@@ -6,10 +8,10 @@ namespace Wmj.Hosting.Sample.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Get()
+        [ActionValidateFilter]
+        public IActionResult Get(string q)
         {
-            return Ok(new string[] { "value1", "value2" });
+            return Ok("Success");
         }
     }
 }

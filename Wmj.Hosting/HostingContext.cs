@@ -3,17 +3,39 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Web;
+using System.Collections.Concurrent;
 using Wmj.Infrastruct;
 
-namespace Wmj.Hosting
+namespace Wmj.Hosting.AspnetCore
 {
     public class HostingContext
     {
+        public static string NODE_NAME = Environment.MachineName;
+        
+        private static ConcurrentDictionary<string, AppStatus> _statusDict = new ConcurrentDictionary<string, AppStatus>();
+        
+        internal static void UpdateAppStatus(AppStatus status)
+        {
+            _statusDict["status"] = status;
+        }
+        
+        public static AppStatus CurrentStatus
+        {
+            get
+            {
+                return _statusDict["status"];
+            }
+            set
+            {
+                UpdateAppStatus(value);
+            }
+         }
+       
         public static void ApplicationInitWithNLog(Action<WebApplicationBuilder> startAction)
         {
             Guard.ThrowIfNull(startAction, nameof(startAction));
 
-            var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
+            var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
             logger.Debug("init main");
             try
             {
@@ -36,5 +58,12 @@ namespace Wmj.Hosting
                 LogManager.Shutdown();
             }
         }
+    }
+    public enum AppStatus
+    {
+        Starting,
+        Started,
+        Stopping,
+        Stopped,
     }
 }
