@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Wmj.Hosting.AspnetCore;
-using Wmj.Hosting.AspnetCore.Endpoints;
-using Wmj.Hosting.AspnetCore.LifeTimes;
+﻿using Wmj.Hosting.AspnetCore.Endpoints;
 using Wmj.Hosting.AspnetCore.MiddleWares;
 using Wmj.Hosting.Sample.Filters;
 using Wmj.Hosting.Sample.HealthCheck;
