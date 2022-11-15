@@ -11,7 +11,7 @@ namespace Wmj.Hosting.Sample
     {
         public static void ConfigService(IServiceCollection service)
         {
-            service.AddControllers();
+            service.AddControllers((o) => o.Filters.Add<LogActionFilter>());
             service.AddAuthenticationCore();
             service.AddAuthorizationCore();
             service.AddScoped<ActionValidateFilter>();
