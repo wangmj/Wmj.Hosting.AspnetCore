@@ -19,8 +19,9 @@ namespace Wmj.Hosting.Sample.Filters
         public override void OnResultExecuted(ResultExecutedContext context)
         {
             var result= context.Result;
+            result.ExecuteResultAsync(context);
             base.OnResultExecuted(context);
-            context.Result.
+            //context.Result.
         }
         public override void OnActionExecuted(ActionExecutedContext context)
         {
