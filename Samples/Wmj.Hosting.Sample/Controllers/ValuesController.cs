@@ -8,9 +8,17 @@ namespace Wmj.Hosting.Sample.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        [ActionValidateFilter]
+        ILogger<ValuesController> logger;
+
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            this.logger = logger;
+        }
+
+        //[ActionValidateFilter]
         public IActionResult Get(string q)
         {
+            logger.LogInformation("ValuesController-get");
             return Ok("Success");
         }
     }

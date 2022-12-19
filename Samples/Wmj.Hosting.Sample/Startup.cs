@@ -4,6 +4,7 @@ using Wmj.Hosting.Sample.Filters;
 using Wmj.Hosting.Sample.HealthCheck;
 
 using Wmj.Hosting.MiddleWares;
+using Wmj.Hosting.Sample.BackgoundServices;
 
 namespace Wmj.Hosting.Sample
 {
@@ -11,11 +12,18 @@ namespace Wmj.Hosting.Sample
     {
         public static void ConfigService(IServiceCollection service)
         {
-            service.AddControllers((o) => o.Filters.Add<LogActionFilter>());
+            service.AddControllers((o) =>
+            {
+                //o.Filters.Add<LogActionFilter>()
+            }
+           
+            );
             service.AddAuthenticationCore();
             service.AddAuthorizationCore();
             service.AddScoped<ActionValidateFilter>();
             service.AddHealthChecks().AddCheck<AppHealthCheck>("app");
+
+            service.AddHostedService<BackServiceTest>();
         }
 
         public static void BuildService(WebApplication app, IWebHostEnvironment env)
