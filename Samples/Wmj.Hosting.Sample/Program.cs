@@ -2,7 +2,7 @@ using Wmj.Hosting.AspnetCore;
 using Wmj.Hosting.AspnetCore.LifeTimes;
 using Wmj.Hosting.Sample;
 
-HostingContext.ApplicationInitWithNLog(appbuilder =>
+HostingContext.InitApplicationWithNLog(appbuilder =>
 {
     Startup.ConfigService(appbuilder.Services);
     //Build to application

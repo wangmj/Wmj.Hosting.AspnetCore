@@ -15,7 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wmj.Hosting.Sample", "Sampl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wmj.Hosting.Generic", "Wmj.Hosting.Generic\Wmj.Hosting.Generic.csproj", "{62189167-7546-451D-AE24-E69A93E2F2AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wmj.Hosting.Sample.Domain", "Wmj.Hosting.Sample.Domain\Wmj.Hosting.Sample.Domain.csproj", "{FFF2CF01-8C46-48D8-B260-43A01DB7D263}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wmj.Hosting.Sample.Domain", "Wmj.Hosting.Sample.Domain\Wmj.Hosting.Sample.Domain.csproj", "{FFF2CF01-8C46-48D8-B260-43A01DB7D263}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{55DEA5DB-8114-413D-B904-5F697EDB9C9E}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

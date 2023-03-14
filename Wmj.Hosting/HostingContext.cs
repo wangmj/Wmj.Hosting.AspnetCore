@@ -31,7 +31,7 @@ namespace Wmj.Hosting.AspnetCore
             }
          }
        
-        public static void ApplicationInitWithNLog(Action<WebApplicationBuilder> startAction)
+        public static void InitApplicationWithNLog(Action<WebApplicationBuilder> startAction)
         {
             Guard.ThrowIfNull(startAction, nameof(startAction));
 

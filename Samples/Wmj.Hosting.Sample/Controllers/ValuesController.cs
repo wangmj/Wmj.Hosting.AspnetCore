@@ -9,9 +9,9 @@ namespace Wmj.Hosting.Sample.Controllers
     public class ValuesController : ControllerBase
     {
         [ActionValidateFilter]
-        public IActionResult Get(string q)
+        public IActionResult Get(string? q)
         {
-            return Ok("Success");
+            return Ok("Success" + q);
         }
     }
 }
