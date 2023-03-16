@@ -29,7 +29,11 @@ namespace Wmj.Hosting.Sample
             app.UseEndpoints(routeBuilder =>
             {
                 routeBuilder.Map("well-known/app", AppEndpoint.GetAppInfo);
-                routeBuilder.MapControllers();
+                //routeBuilder.MapControllers();
+                routeBuilder.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+              );
             });
         }
     }
