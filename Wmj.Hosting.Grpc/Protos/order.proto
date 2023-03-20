@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "Wmj.Hosting.Grpc.Protos";
+
+package order;
+
+service Order{
+	rpc AddOrder(AddOrderReq) returns (AddOrderRes);
+}
+
+message AddOrderReq{
+	string name=1;
+	int32 num=2;
+}
+
+message AddOrderRes{
+	bool success=1;
+	int32 orderId=2;
+}
